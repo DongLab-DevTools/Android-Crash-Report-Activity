@@ -9,7 +9,9 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.updatePadding
 import com.donglab.crash.databinding.ActivityCrashBinding
 import com.donglab.crash.databinding.ItemCrashCodeBinding
@@ -35,6 +37,7 @@ class CrashActivity : AppCompatActivity() {
         binding = ActivityCrashBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
 
+        setupStatusBarAppearance()
         setupSystemBarsPadding()
 
         crashInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -50,6 +53,14 @@ class CrashActivity : AppCompatActivity() {
         setupToolbar()
         setupViews()
         setupButtons()
+    }
+
+    private fun setupStatusBarAppearance() {
+        // Status bar 아이콘을 어둡게 설정 (light status bar)
+        WindowCompat.getInsetsController(window, binding.root)?.apply {
+            isAppearanceLightStatusBars = true
+            isAppearanceLightNavigationBars = true
+        }
     }
 
     private fun setupSystemBarsPadding() {
