@@ -8,6 +8,9 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import com.donglab.crash.databinding.ActivityCrashBinding
 import com.donglab.crash.databinding.ItemCrashCodeBinding
 import com.donglab.crash.databinding.ItemCrashCodeBlockBinding
@@ -32,6 +35,8 @@ class CrashActivity : AppCompatActivity() {
         binding = ActivityCrashBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
 
+        setupSystemBarsPadding()
+
         crashInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.getParcelableExtra(EXTRA_CRASH_INFO, CrashInfo::class.java)
         } else {
@@ -45,6 +50,20 @@ class CrashActivity : AppCompatActivity() {
         setupToolbar()
         setupViews()
         setupButtons()
+    }
+
+    private fun setupSystemBarsPadding() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
+            val systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            // 루트 레이아웃에 status bar와 navigation bar 높이만큼 padding 추가
+            view.updatePadding(
+                top = systemBars.top,
+                bottom = systemBars.bottom
+            )
+
+            windowInsets
+        }
     }
 
     private fun setupToolbar() {
