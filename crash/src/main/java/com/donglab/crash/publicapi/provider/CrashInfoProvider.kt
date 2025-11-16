@@ -1,7 +1,7 @@
-package com.donglab.crash.provider
+package com.donglab.crash.publicapi.provider
 
 import android.content.Context
-import com.donglab.crash.provider.model.CrashInfoSection
+import com.donglab.crash.publicapi.provider.model.CrashInfoSection
 
 /**
  * 크래시 정보 수집 Provider 인터페이스

@@ -1,11 +1,12 @@
-package com.donglab.crash.provider.impl
+package com.donglab.crash.publicapi.provider.impl
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Build
-import com.donglab.crash.provider.CrashInfoProvider
-import com.donglab.crash.provider.model.CrashInfoItem
-import com.donglab.crash.provider.model.CrashInfoSection
-import com.donglab.crash.provider.model.SectionType
+import com.donglab.crash.publicapi.provider.CrashInfoProvider
+import com.donglab.crash.publicapi.provider.model.CrashInfoItem
+import com.donglab.crash.publicapi.provider.model.CrashInfoSection
+import com.donglab.crash.publicapi.provider.model.SectionType
 
 /**
  * 앱 정보 Provider
@@ -24,7 +25,7 @@ class AppInfoProvider : CrashInfoProvider {
             val packageInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 context.packageManager.getPackageInfo(
                     context.packageName,
-                    android.content.pm.PackageManager.PackageInfoFlags.of(0)
+                    PackageManager.PackageInfoFlags.of(0)
                 )
             } else {
                 @Suppress("DEPRECATION")

@@ -1,9 +1,9 @@
-package com.donglab.crash.provider.impl
+package com.donglab.crash.publicapi.provider.impl
 
 import android.content.Context
-import com.donglab.crash.provider.CrashInfoProvider
-import com.donglab.crash.provider.model.CrashInfoItem
-import com.donglab.crash.provider.model.CrashInfoSection
+import com.donglab.crash.publicapi.provider.CrashInfoProvider
+import com.donglab.crash.publicapi.provider.model.CrashInfoItem
+import com.donglab.crash.publicapi.provider.model.CrashInfoSection
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

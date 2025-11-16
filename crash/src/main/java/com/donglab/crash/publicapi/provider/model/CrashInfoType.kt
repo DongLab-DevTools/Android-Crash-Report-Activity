@@ -1,4 +1,4 @@
-package com.donglab.crash.provider.model
+package com.donglab.crash.publicapi.provider.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

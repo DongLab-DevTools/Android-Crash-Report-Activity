@@ -1,6 +1,6 @@
-package com.donglab.crash.config
+package com.donglab.crash.publicapi.config
 
-import com.donglab.crash.provider.CrashInfoProvider
+import com.donglab.crash.publicapi.provider.CrashInfoProvider
 
 /**
  * CrashHandler 설정

@@ -1,7 +1,7 @@
-package com.donglab.crash.extensions
+package com.donglab.crash.internal.extensions
 
 import android.content.res.Resources
 
-fun Int.dpToPx(): Int {
+internal fun Int.dpToPx(): Int {
     return (this * Resources.getSystem().displayMetrics.density).toInt()
 }

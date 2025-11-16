@@ -1,11 +1,11 @@
-package com.donglab.crash.provider.impl
+package com.donglab.crash.publicapi.provider.impl
 
 import android.content.Context
 import android.os.Build
-import com.donglab.crash.provider.CrashInfoProvider
-import com.donglab.crash.provider.model.CrashInfoItem
-import com.donglab.crash.provider.model.CrashInfoSection
-import com.donglab.crash.provider.model.SectionType
+import com.donglab.crash.publicapi.provider.CrashInfoProvider
+import com.donglab.crash.publicapi.provider.model.CrashInfoItem
+import com.donglab.crash.publicapi.provider.model.CrashInfoSection
+import com.donglab.crash.publicapi.provider.model.SectionType
 
 /**
  * 디바이스 정보 Provider

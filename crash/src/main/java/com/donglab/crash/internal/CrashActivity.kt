@@ -1,8 +1,9 @@
-package com.donglab.crash
+package com.donglab.crash.internal
 
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Process
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
@@ -11,8 +12,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.updatePadding
+import com.donglab.crash.R
 import com.donglab.crash.databinding.ActivityCrashBinding
 import com.donglab.crash.databinding.ItemCrashCodeBinding
 import com.donglab.crash.databinding.ItemCrashCodeBlockBinding
@@ -20,14 +21,14 @@ import com.donglab.crash.databinding.ItemCrashErrorBinding
 import com.donglab.crash.databinding.ItemCrashExceptionBinding
 import com.donglab.crash.databinding.ItemCrashNormalBinding
 import com.donglab.crash.databinding.ItemCrashSectionTitleBinding
-import com.donglab.crash.extensions.dpToPx
-import com.donglab.crash.provider.model.CrashInfoItem
-import com.donglab.crash.provider.model.CrashInfoSection
-import com.donglab.crash.provider.model.ItemType
-import com.donglab.crash.provider.model.SectionType
+import com.donglab.crash.internal.extensions.dpToPx
+import com.donglab.crash.publicapi.provider.model.CrashInfoItem
+import com.donglab.crash.publicapi.provider.model.CrashInfoSection
+import com.donglab.crash.publicapi.provider.model.ItemType
+import com.donglab.crash.publicapi.provider.model.SectionType
 import com.google.android.material.divider.MaterialDivider
 
-class CrashActivity : AppCompatActivity() {
+internal class CrashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCrashBinding
     private lateinit var crashInfo: CrashInfo
@@ -212,7 +213,7 @@ class CrashActivity : AppCompatActivity() {
 
     private fun closeApp() {
         finishAffinity()
-        android.os.Process.killProcess(android.os.Process.myPid())
+        Process.killProcess(Process.myPid())
         System.exit(10)
     }
 

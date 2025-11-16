@@ -1,7 +1,7 @@
-package com.donglab.crash
+package com.donglab.crash.internal
 
 import android.os.Parcelable
-import com.donglab.crash.provider.model.CrashInfoSection
+import com.donglab.crash.publicapi.provider.model.CrashInfoSection
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
  * Provider 패턴을 통해 수집된 섹션들을 포함합니다.
  */
 @Parcelize
-data class CrashInfo(
+internal data class CrashInfo(
     val sections: List<CrashInfoSection>
 ) : Parcelable {
 

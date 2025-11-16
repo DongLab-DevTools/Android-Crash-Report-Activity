@@ -1,8 +1,8 @@
-package com.donglab.crash.dsl
+package com.donglab.crash.publicapi.dsl
 
 import android.app.Application
-import com.donglab.crash.GlobalExceptionHandler
-import com.donglab.crash.config.CrashHandlerConfig
+import com.donglab.crash.publicapi.GlobalExceptionHandler
+import com.donglab.crash.publicapi.config.CrashHandlerConfig
 
 /**
  * CrashHandler DSL 진입점

@@ -1,14 +1,15 @@
-package com.donglab.crash
+package com.donglab.crash.publicapi
 
 import android.app.Activity
 import android.app.Application
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.os.Process
 import android.util.Log
-import com.donglab.crash.config.CrashHandlerConfig
-import com.donglab.crash.provider.collector.CrashInfoCollector
+import com.donglab.crash.internal.CrashActivity
+import com.donglab.crash.internal.CrashInfo
+import com.donglab.crash.publicapi.config.CrashHandlerConfig
+import com.donglab.crash.publicapi.provider.collector.CrashInfoCollector
 import java.lang.ref.WeakReference
 import kotlin.system.exitProcess
 
@@ -103,7 +104,7 @@ class GlobalExceptionHandler private constructor(
 
             // CrashActivity 시작
             val intent = Intent(application, CrashActivity::class.java).apply {
-                putExtra(CrashActivity.EXTRA_CRASH_INFO, crashInfo)
+                putExtra(CrashActivity.Companion.EXTRA_CRASH_INFO, crashInfo)
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             }
 

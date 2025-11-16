@@ -1,16 +1,16 @@
-package com.donglab.crash.provider.collector
+package com.donglab.crash.publicapi.provider.collector
 
 import android.content.Context
-import com.donglab.crash.provider.CrashInfoProvider
-import com.donglab.crash.provider.impl.AppInfoProvider
-import com.donglab.crash.provider.impl.BasicInfoProvider
-import com.donglab.crash.provider.impl.BuildInfoProvider
-import com.donglab.crash.provider.impl.DeviceInfoProvider
-import com.donglab.crash.provider.impl.ExceptionInfoProvider
-import com.donglab.crash.provider.impl.MemoryInfoProvider
-import com.donglab.crash.provider.impl.NetworkInfoProvider
-import com.donglab.crash.provider.impl.ThreadInfoProvider
-import com.donglab.crash.provider.model.CrashInfoSection
+import com.donglab.crash.publicapi.provider.CrashInfoProvider
+import com.donglab.crash.publicapi.provider.impl.AppInfoProvider
+import com.donglab.crash.publicapi.provider.impl.BasicInfoProvider
+import com.donglab.crash.publicapi.provider.impl.BuildInfoProvider
+import com.donglab.crash.publicapi.provider.impl.DeviceInfoProvider
+import com.donglab.crash.publicapi.provider.impl.ExceptionInfoProvider
+import com.donglab.crash.publicapi.provider.impl.MemoryInfoProvider
+import com.donglab.crash.publicapi.provider.impl.NetworkInfoProvider
+import com.donglab.crash.publicapi.provider.impl.ThreadInfoProvider
+import com.donglab.crash.publicapi.provider.model.CrashInfoSection
 
 /**
  * CrashInfoProvider 관리자 (내부 사용)
