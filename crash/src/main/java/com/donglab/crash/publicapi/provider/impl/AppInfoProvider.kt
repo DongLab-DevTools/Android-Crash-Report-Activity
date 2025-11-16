@@ -53,6 +53,4 @@ class AppInfoProvider : CrashInfoProvider {
             null
         }
     }
-
-    override fun getOrder(): Int = 60
 }

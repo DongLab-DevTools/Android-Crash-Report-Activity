@@ -62,6 +62,4 @@ class BuildInfoProvider : CrashInfoProvider {
             null
         }
     }
-
-    override fun getOrder(): Int = 5
 }

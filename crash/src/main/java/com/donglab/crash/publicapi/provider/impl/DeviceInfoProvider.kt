@@ -32,6 +32,4 @@ class DeviceInfoProvider : CrashInfoProvider {
             type = SectionType.CODE
         )
     }
-
-    override fun getOrder(): Int = 50
 }

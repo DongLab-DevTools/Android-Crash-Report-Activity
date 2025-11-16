@@ -31,6 +31,4 @@ class BasicInfoProvider : CrashInfoProvider {
             )
         )
     }
-
-    override fun getOrder(): Int = 0
 }

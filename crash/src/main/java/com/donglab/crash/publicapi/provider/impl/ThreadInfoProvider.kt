@@ -30,6 +30,4 @@ class ThreadInfoProvider : CrashInfoProvider {
             type = SectionType.CODE
         )
     }
-
-    override fun getOrder(): Int = 20
 }

@@ -64,6 +64,4 @@ class NetworkInfoProvider : CrashInfoProvider {
             )
         }
     }
-
-    override fun getOrder(): Int = 40
 }

@@ -37,6 +37,4 @@ class MemoryInfoProvider : CrashInfoProvider {
             type = SectionType.CODE
         )
     }
-
-    override fun getOrder(): Int = 30
 }

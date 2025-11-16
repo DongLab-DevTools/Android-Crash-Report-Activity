@@ -62,6 +62,4 @@ class ExceptionInfoProvider : CrashInfoProvider {
             type = SectionType.EXCEPTION
         )
     }
-
-    override fun getOrder(): Int = 10
 }

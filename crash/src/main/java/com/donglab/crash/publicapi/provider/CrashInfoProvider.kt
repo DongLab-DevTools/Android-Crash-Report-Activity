@@ -22,9 +22,4 @@ interface CrashInfoProvider {
         thread: Thread,
         activityName: String
     ): CrashInfoSection?
-
-    /**
-     * 화면에 표시될 순서 (낮을수록 먼저 표시)
-     */
-    fun getOrder(): Int
 }

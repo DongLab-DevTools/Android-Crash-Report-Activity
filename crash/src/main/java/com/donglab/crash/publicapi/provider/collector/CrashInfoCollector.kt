@@ -24,7 +24,7 @@ import com.donglab.crash.publicapi.provider.model.CrashInfoSection
 internal class CrashInfoCollector {
 
     // Provider 타입(클래스)을 키로 사용하여 중복 방지 및 빠른 조회
-    private val providers = mutableMapOf<Class<out CrashInfoProvider>, CrashInfoProvider>()
+    private val providers = linkedMapOf<Class<out CrashInfoProvider>, CrashInfoProvider>()
 
     /**
      * Provider 등록
@@ -100,7 +100,6 @@ internal class CrashInfoCollector {
 
         // Order 값으로 정렬하여 수집
         providers.values
-            .sortedBy { it.getOrder() }
             .forEach { provider ->
                 try {
                     provider.collect(context, throwable, thread, activityName)?.let {
