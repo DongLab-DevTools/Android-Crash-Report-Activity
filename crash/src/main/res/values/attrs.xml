@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NudgeTextField">
+        <!-- Label text -->
+        <attr name="labelText" format="string" />
+
+        <!-- Placeholder text -->
+        <attr name="placeholderText" format="string" />
+
+        <!-- Helper text -->
+        <attr name="helperText" format="string" />
+
+        <!-- Input type -->
+        <attr name="android:inputType" />
+
+        <!-- Max length -->
+        <attr name="android:maxLength" />
+
+        <!-- Enable/Disable -->
+        <attr name="android:enabled" />
+
+        <!-- Text -->
+        <attr name="android:text" />
+
+        <!-- Hint -->
+        <attr name="android:hint" />
+    </declare-styleable>
+</resources>

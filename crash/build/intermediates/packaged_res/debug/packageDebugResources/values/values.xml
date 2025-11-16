@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="c_111111">#111111</color>
+    <color name="c_1a1a1a">#1a1a1a</color>
+    <color name="c_2b96ed">#2b96ed</color>
+    <color name="c_383838">#383838</color>
+    <color name="c_666666">#666666</color>
+    <color name="c_999999">#999999</color>
+    <color name="c_d8d8d8">#d8d8d8</color>
+    <color name="c_e3f2fc">#e3f2fc</color>
+    <color name="c_ececec">#ececec</color>
+    <color name="c_ed2e77">#ed2e77</color>
+    <color name="c_f5f5f5">#f5f5f5</color>
+    <color name="c_ffffff">#ffffff</color>
+    <color name="colorPrimary">#1a1a1a</color>
+    <color name="color_filled_light_button_text">@color/colorPrimary</color>
+    <color name="color_outlined_button_text">@color/colorPrimary</color>
+    <string name="clear_text">텍스트 지우기</string>
+    <string name="crash_app_bar_title">앱 오류</string>
+    <string name="crash_close_button">확인</string>
+    <string name="crash_share_button">공유</string>
+    <string name="crash_share_title">크래시 로그 공유</string>
+    <style name="BaseFilledButton">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_filled_button</item>
+        <item name="android:textColor">@color/c_ffffff</item>
+    </style>
+    <style name="BaseFilledLightButton">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_filled_light_button</item>
+        <item name="android:textColor">@color/color_filled_light_button_text</item>
+    </style>
+    <style name="BaseOutlinedButton">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_outlined_button</item>
+        <item name="android:textColor">@color/color_outlined_button_text</item>
+    </style>
+    <style name="FilledButtonLarge" parent="BaseFilledButton">
+        <item name="android:height">48dp</item>
+        <item name="android:textAppearance">@style/TextBody1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="FilledButtonMediumAction">
+        <item name="android:height">44dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_round_rectangle_r8_2b96ed</item>
+        <item name="android:textAppearance">@style/TextBody2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/c_ffffff</item>
+    </style>
+    <style name="FilledButtonMediumCancel">
+        <item name="android:height">44dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_round_rectangle_r8_999999</item>
+        <item name="android:textAppearance">@style/TextBody2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/c_ffffff</item>
+    </style>
+    <style name="FilledButtonSmall" parent="BaseFilledButton">
+        <item name="android:height">42dp</item>
+        <item name="android:textAppearance">@style/TextBody3</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="FilledLightButtonLarge" parent="BaseFilledLightButton">
+        <item name="android:height">48dp</item>
+        <item name="android:textAppearance">@style/TextBody1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="FilledLightButtonMedium" parent="BaseFilledLightButton">
+        <item name="android:height">44dp</item>
+        <item name="android:textAppearance">@style/TextBody2</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="OutlinedButtonLarge" parent="BaseOutlinedButton">
+        <item name="android:height">48dp</item>
+        <item name="android:textAppearance">@style/TextBody1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="OutlinedButtonLargeCancel">
+        <item name="android:gravity">center</item>
+        <item name="android:height">48dp</item>
+        <item name="android:textAppearance">@style/TextBody1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/bg_round_rectangle_borderline_r8_d8d8d8_ffffff</item>
+        <item name="android:textColor">@color/c_999999</item>
+    </style>
+    <style name="TextBody1">
+        <item name="android:textSize">16dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextBody2">
+        <item name="android:textSize">15dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextBody3">
+        <item name="android:textSize">14dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextCaption1">
+        <item name="android:textSize">13dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextCaption2">
+        <item name="android:textSize">12dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextDisplay">
+        <item name="android:textSize">40dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextHeadline1">
+        <item name="android:textSize">36dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextHeadline2">
+        <item name="android:textSize">28dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextHeadline3">
+        <item name="android:textSize">24dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextHeadline4">
+        <item name="android:textSize">20dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextHeadline5">
+        <item name="android:textSize">18dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="TextLabel">
+        <item name="android:textSize">11dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <declare-styleable name="NudgeTextField">
+        
+        <attr format="string" name="labelText"/>
+
+        
+        <attr format="string" name="placeholderText"/>
+
+        
+        <attr format="string" name="helperText"/>
+
+        
+        <attr name="android:inputType"/>
+
+        
+        <attr name="android:maxLength"/>
+
+        
+        <attr name="android:enabled"/>
+
+        
+        <attr name="android:text"/>
+
+        
+        <attr name="android:hint"/>
+    </declare-styleable>
+</resources>

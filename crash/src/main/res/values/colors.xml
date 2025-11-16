@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1a1a1a</color>
+
+    <color name="c_ffffff">#ffffff</color>
+    <color name="c_383838">#383838</color>
+    <color name="c_666666">#666666</color>
+    <color name="c_999999">#999999</color>
+    <color name="c_ececec">#ececec</color>
+    <color name="c_f5f5f5">#f5f5f5</color>
+    <color name="c_ed2e77">#ed2e77</color>
+    <color name="c_111111">#111111</color>
+    <color name="c_d8d8d8">#d8d8d8</color>
+    <color name="c_e3f2fc">#e3f2fc</color>
+    <color name="c_2b96ed">#2b96ed</color>
+    <color name="c_1a1a1a">#1a1a1a</color>
+
+    <!-- Button Text Colors -->
+    <color name="color_filled_light_button_text">@color/colorPrimary</color>
+    <color name="color_outlined_button_text">@color/colorPrimary</color>
+</resources>

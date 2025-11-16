@@ -1,0 +1,150 @@
+<resources>
+    <!-- ========================================== -->
+    <!--               Button Style                 -->
+    <!-- ========================================== -->
+
+    <!-- Base Styles -->
+    <style name="BaseFilledButton">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_filled_button</item>
+        <item name="android:textColor">@color/c_ffffff</item>
+    </style>
+
+    <style name="BaseFilledLightButton">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_filled_light_button</item>
+        <item name="android:textColor">@color/color_filled_light_button_text</item>
+    </style>
+
+    <style name="BaseOutlinedButton">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_outlined_button</item>
+        <item name="android:textColor">@color/color_outlined_button_text</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="FilledButtonLarge" parent="BaseFilledButton">
+        <item name="android:height">48dp</item>
+        <item name="android:textAppearance">@style/TextBody1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FilledLightButtonLarge" parent="BaseFilledLightButton">
+        <item name="android:height">48dp</item>
+        <item name="android:textAppearance">@style/TextBody1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FilledButtonMediumAction">
+        <item name="android:height">44dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_round_rectangle_r8_2b96ed</item>
+        <item name="android:textAppearance">@style/TextBody2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/c_ffffff</item>
+    </style>
+
+    <style name="FilledButtonMediumCancel">
+        <item name="android:height">44dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_round_rectangle_r8_999999</item>
+        <item name="android:textAppearance">@style/TextBody2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/c_ffffff</item>
+    </style>
+
+    <style name="FilledLightButtonMedium" parent="BaseFilledLightButton">
+        <item name="android:height">44dp</item>
+        <item name="android:textAppearance">@style/TextBody2</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FilledButtonSmall" parent="BaseFilledButton">
+        <item name="android:height">42dp</item>
+        <item name="android:textAppearance">@style/TextBody3</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="OutlinedButtonLarge" parent="BaseOutlinedButton">
+        <item name="android:height">48dp</item>
+        <item name="android:textAppearance">@style/TextBody1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="OutlinedButtonLargeCancel">
+        <item name="android:gravity">center</item>
+        <item name="android:height">48dp</item>
+        <item name="android:textAppearance">@style/TextBody1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/bg_round_rectangle_borderline_r8_d8d8d8_ffffff</item>
+        <item name="android:textColor">@color/c_999999</item>
+    </style>
+
+    <!-- ========================================== -->
+    <!--                  Font Style                -->
+    <!-- ========================================== -->
+    <!-- Display -->
+    <style name="TextDisplay">
+        <item name="android:textSize">40dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Headline styles -->
+    <style name="TextHeadline1">
+        <item name="android:textSize">36dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextHeadline2">
+        <item name="android:textSize">28dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextHeadline3">
+        <item name="android:textSize">24dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextHeadline4">
+        <item name="android:textSize">20dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextHeadline5">
+        <item name="android:textSize">18dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Body styles -->
+    <style name="TextBody1">
+        <item name="android:textSize">16dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextBody2">
+        <item name="android:textSize">15dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextBody3">
+        <item name="android:textSize">14dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Caption styles -->
+    <style name="TextCaption1">
+        <item name="android:textSize">13dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextCaption2">
+        <item name="android:textSize">12dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Label -->
+    <style name="TextLabel">
+        <item name="android:textSize">11dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+</resources>
