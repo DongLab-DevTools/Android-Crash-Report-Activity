@@ -2,6 +2,7 @@ package com.donglab.crash.provider.impl
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Build
 import com.donglab.crash.provider.CrashInfoProvider
 import com.donglab.crash.provider.model.CrashInfoItem
@@ -22,28 +23,26 @@ class NetworkInfoProvider : CrashInfoProvider {
     ): CrashInfoSection? {
         return try {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
-            val activeNetwork = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                cm?.activeNetwork?.let { cm.getNetworkCapabilities(it) }
-            } else {
-                @Suppress("DEPRECATION")
-                cm?.activeNetworkInfo
-            }
 
-            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                activeNetwork != null
-            } else {
-                @Suppress("DEPRECATION")
-                (activeNetwork as? android.net.NetworkInfo)?.isConnected ?: false
-            }
-
-            val networkType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                when {
-                    activeNetwork == null -> "None"
-                    else -> "Connected"
+            val (isConnected, networkType) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val capabilities = cm?.activeNetwork?.let { cm.getNetworkCapabilities(it) }
+                val connected = capabilities != null
+                val type = when {
+                    capabilities == null -> "None"
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> "WiFi"
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> "Cellular"
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> "Ethernet"
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_BLUETOOTH) -> "Bluetooth"
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) -> "VPN"
+                    else -> "Unknown"
                 }
+                Pair(connected, type)
             } else {
                 @Suppress("DEPRECATION")
-                (activeNetwork as? android.net.NetworkInfo)?.typeName ?: "Unknown"
+                val networkInfo = cm?.activeNetworkInfo
+                val connected = networkInfo?.isConnected ?: false
+                val type = networkInfo?.typeName ?: "None"
+                Pair(connected, type)
             }
 
             CrashInfoSection(
@@ -59,7 +58,7 @@ class NetworkInfoProvider : CrashInfoProvider {
                 title = "네트워크 정보",
                 items = listOf(
                     CrashInfoItem("Connected", "false"),
-                    CrashInfoItem("Type", "Error")
+                    CrashInfoItem("Type", "Error: ${e.message}")
                 ),
                 type = SectionType.CODE
             )
