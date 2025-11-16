@@ -14,12 +14,6 @@ import com.donglab.crash.config.CrashHandlerConfig
  *         useDefault()  // 기본 Provider 모두 사용
  *         add(MyCustomProvider())  // 커스텀 추가
  *     }
- *
- *     ui {
- *         appBarTitle = "앱 오류"
- *         shareButtonText = "공유"
- *         closeButtonText = "확인"
- *     }
  * }
  * ```
  */
