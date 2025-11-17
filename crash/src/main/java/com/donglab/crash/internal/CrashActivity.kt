@@ -57,6 +57,10 @@ internal class CrashActivity : AppCompatActivity() {
     }
 
     private fun setupStatusBarAppearance() {
+        // 시스템 바 배경색을 흰색으로 설정
+        window.statusBarColor = ContextCompat.getColor(this, R.color.c_ffffff)
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.c_ffffff)
+
         // Status bar 아이콘을 어둡게 설정 (light status bar)
         WindowCompat.getInsetsController(window, binding.root)?.apply {
             isAppearanceLightStatusBars = true
