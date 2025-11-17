@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="16dp"
     android:paddingVertical="8dp"
-    android:textColor="@color/c_ed2e77"
+    android:textColor="?attr/colorPrimary"
     android:textSize="14sp"
     android:textStyle="bold"
     tools:text="java.lang.NullPointerException" />

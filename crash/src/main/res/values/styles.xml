@@ -1,5 +1,33 @@
 <resources>
     <!-- ========================================== -->
+    <!--      New Theme for CrashActivity           -->
+    <!-- ========================================== -->
+    <style name="Theme.CrashActivity" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/gemini_light_primary</item>
+        <item name="android:colorBackground">@color/gemini_light_background</item>
+        <item name="colorSurface">@color/gemini_light_surface</item>
+        <item name="colorOnSurface">@color/gemini_light_on_surface</item>
+        <item name="android:textColorSecondary">@color/gemini_light_on_surface_secondary</item>
+
+        <!-- Set status bar and navigation bar colors -->
+        <item name="android:statusBarColor">@color/gemini_light_background</item>
+        <item name="android:navigationBarColor">@color/gemini_light_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <!-- New Material3 Button Style -->
+    <style name="Gemini.Button.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/gemini_light_outline</item>
+        <item name="android:textColor">@color/gemini_light_on_surface</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+
+    <!-- ========================================== -->
     <!--               Button Style                 -->
     <!-- ========================================== -->
 

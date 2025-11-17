@@ -18,4 +18,13 @@
     <!-- Button Text Colors -->
     <color name="color_filled_light_button_text">@color/colorPrimary</color>
     <color name="color_outlined_button_text">@color/colorPrimary</color>
+
+    <!-- New Gemini-inspired color palette -->
+    <color name="gemini_light_background">#FFFFFF</color>
+    <color name="gemini_light_surface">#FFFFFF</color>
+    <color name="gemini_light_surface_card">#F1F3F4</color>
+    <color name="gemini_light_primary">#1a73e8</color>
+    <color name="gemini_light_on_surface">#1f1f1f</color>
+    <color name="gemini_light_on_surface_secondary">#5f6368</color>
+    <color name="gemini_light_outline">#dadce0</color>
 </resources>

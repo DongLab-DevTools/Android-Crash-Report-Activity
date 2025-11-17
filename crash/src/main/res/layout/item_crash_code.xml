@@ -8,6 +8,6 @@
     android:fontFamily="monospace"
     android:paddingHorizontal="16dp"
     android:paddingVertical="8dp"
-    android:textColor="@color/c_666666"
+    android:textColor="?android:attr/textColorSecondary"
     android:textSize="12sp"
     tools:text="Thread: main\nIs Main Thread: true" />
