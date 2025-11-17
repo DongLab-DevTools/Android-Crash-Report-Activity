@@ -27,9 +27,9 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -61,55 +61,59 @@ data class CrashTest(
     val action: () -> Unit
 )
 
+private val crashTests = listOf(
+    CrashTest("NullPointerException", "Trigger a null pointer exception") {
+        val nullString: String? = null
+        nullString!!.length
+    },
+    CrashTest("ArrayIndexOutOfBounds", "Access array with invalid index") {
+        val array = arrayOf(1, 2, 3)
+        array[10]
+    },
+    CrashTest("ArithmeticException", "Division by zero error") {
+        val result = 10 / 0
+    },
+    CrashTest("ClassCastException", "Invalid type casting") {
+        val obj: Any = "String"
+        obj as Int
+    },
+    CrashTest("StackOverflowError", "Infinite recursive call") {
+        fun recursiveFunction(): Unit = recursiveFunction()
+        recursiveFunction()
+    },
+    CrashTest("OutOfMemoryError", "Allocate excessive memory") {
+        val list = mutableListOf<ByteArray>()
+        while (true) {
+            list.add(ByteArray(1024 * 1024 * 10)) // 10MB per iteration
+        }
+    },
+    CrashTest("Background Thread Crash", "Crash on a background thread") {
+        CoroutineScope(Dispatchers.Default).launch {
+            delay(100)
+            throw RuntimeException("Background thread crash!")
+        }
+    },
+    CrashTest("Custom Exception", "Throw a custom exception with detailed message") {
+        throw CustomCrashException(
+            "This is a custom crash with detailed information",
+            errorCode = "ERR_001",
+            userId = "user123"
+        )
+    }
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CrashTestScreen() {
-    val crashTests = listOf(
-        CrashTest("NullPointerException", "Trigger a null pointer exception") {
-            val nullString: String? = null
-            nullString!!.length
-        },
-        CrashTest("ArrayIndexOutOfBounds", "Access array with invalid index") {
-            val array = arrayOf(1, 2, 3)
-            array[10]
-        },
-        CrashTest("ArithmeticException", "Division by zero error") {
-            val result = 10 / 0
-        },
-        CrashTest("ClassCastException", "Invalid type casting") {
-            val obj: Any = "String"
-            obj as Int
-        },
-        CrashTest("StackOverflowError", "Infinite recursive call") {
-            fun recursiveFunction(): Unit = recursiveFunction()
-            recursiveFunction()
-        },
-        CrashTest("OutOfMemoryError", "Allocate excessive memory") {
-            val list = mutableListOf<ByteArray>()
-            while (true) {
-                list.add(ByteArray(1024 * 1024 * 10)) // 10MB per iteration
-            }
-        },
-        CrashTest("Background Thread Crash", "Crash on a background thread") {
-            CoroutineScope(Dispatchers.Default).launch {
-                delay(100)
-                throw RuntimeException("Background thread crash!")
-            }
-        },
-        CrashTest("Custom Exception", "Throw a custom exception with detailed message") {
-            throw CustomCrashException(
-                "This is a custom crash with detailed information",
-                errorCode = "ERR_001",
-                userId = "user123"
-            )
-        }
-    )
-
     val isDarkTheme = isSystemInDarkTheme()
     val gradientColors = if (isDarkTheme) {
         listOf(GradientStartBlue, GradientEndPurple)
     } else {
         listOf(LightGradientStart, LightGradientEnd)
+    }
+
+    val titleBrush = remember(gradientColors) {
+        Brush.linearGradient(gradientColors)
     }
 
     Scaffold(
@@ -119,7 +123,7 @@ fun CrashTestScreen() {
                     Text(
                         "Crash Viewer",
                         style = MaterialTheme.typography.titleLarge.copy(
-                            brush = Brush.linearGradient(gradientColors),
+                            brush = titleBrush,
                             fontWeight = FontWeight.Bold
                         )
                     )
@@ -138,7 +142,11 @@ fun CrashTestScreen() {
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            items(crashTests) { crashTest ->
+            items(
+                items = crashTests,
+                key = { it.title },
+                contentType = { "CrashTestCard" }
+            ) { crashTest ->
                 CrashTestCard(crashTest)
             }
         }
