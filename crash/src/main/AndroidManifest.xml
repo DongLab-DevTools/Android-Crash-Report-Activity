@@ -4,4 +4,11 @@
     <!-- 네트워크 상태 확인을 위한 권한 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <application>
+        <activity
+            android:name="com.donglab.crash.internal.CrashActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+    </application>
+
 </manifest>
