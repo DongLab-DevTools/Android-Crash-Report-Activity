@@ -9,7 +9,9 @@
 
 ## Overview
 
-Android-Crash-Report-Activity is a crash reporting library that displays detailed crash information in a user-friendly UI when your app crashes. Instead of just showing the standard Android crash dialog, this library provides comprehensive crash details including app info, device info, memory status, network status, and stack traces.
+Android-Crash-Report-Activity is a debug library that displays crash information in a UI when the app terminates due to a crash.
+
+It provides comprehensive crash details including app information, device information, memory status, network status, and stack trace.
 
 | Sample Screen | Crash Info Screen 1 | Crash Info Screen 2 | Share Feature |
 |---------|----------------|----------------|----------------|
