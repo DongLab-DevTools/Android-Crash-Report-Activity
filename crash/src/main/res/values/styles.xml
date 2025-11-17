@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- ========================================== -->
     <!--      New Theme for CrashActivity           -->
     <!-- ========================================== -->
@@ -13,13 +13,12 @@
         <item name="colorOnSurfaceVariant">@color/gemini_on_surface_variant</item>
         <item name="colorOutline">@color/gemini_outline</item>
         <item name="android:textColorSecondary">@color/gemini_on_surface_variant</item>
-        <item name="android:fontFamily">@font/product_sans</item>
 
         <!-- Set status bar and navigation bar colors -->
         <item name="android:statusBarColor">@color/gemini_background</item>
         <item name="android:navigationBarColor">@color/gemini_background</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
     </style>
 
     <!-- ========================================== -->

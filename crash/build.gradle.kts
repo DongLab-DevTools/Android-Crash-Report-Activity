@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.parcelize)
+
+    id("maven-publish")
 }
 
 android {
@@ -44,4 +46,24 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.android.material)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.donglab.devtools"
+                artifactId = "crash-report-activity"
+                version = libs.versions.sdk.version.get()
+
+                // POM Metadata (Optional)
+                pom {
+                    name.set("Android Crash Report Activity")
+                    description.set("An easy-to-use Crash Report Activity for Android applications.")
+                    url.set("https://github.com/DongLab-DevTools/Android-Crash-Report-Activity")
+                }
+            }
+        }
+    }
 }
