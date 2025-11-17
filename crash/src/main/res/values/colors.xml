@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Old colors, can be removed if no longer used by drawables -->
     <color name="colorPrimary">#1a1a1a</color>
-
     <color name="c_ffffff">#ffffff</color>
     <color name="c_383838">#383838</color>
     <color name="c_666666">#666666</color>
@@ -14,8 +14,23 @@
     <color name="c_e3f2fc">#e3f2fc</color>
     <color name="c_2b96ed">#2b96ed</color>
     <color name="c_1a1a1a">#1a1a1a</color>
-
-    <!-- Button Text Colors -->
     <color name="color_filled_light_button_text">@color/colorPrimary</color>
     <color name="color_outlined_button_text">@color/colorPrimary</color>
+
+    <!-- New Gemini-inspired M3 Palette -->
+    <color name="gemini_primary">#4285F4</color>
+    <color name="gemini_on_primary">#FFFFFF</color>
+    <color name="gemini_background">#F8F9FD</color>
+    <color name="gemini_on_background">#1F1F1F</color>
+    <color name="gemini_surface">#FFFFFF</color>
+    <color name="gemini_on_surface">#1F1F1F</color>
+    <color name="gemini_surface_variant">#F0F4F9</color>
+    <color name="gemini_on_surface_variant">#42474E</color>
+    <color name="gemini_outline">#C4C7C5</color>
+
+    <!-- Custom Button Colors -->
+    <color name="gemini_button_main_background">#CDE5FF</color>
+    <color name="gemini_button_secondary_border">#EBEBEB</color>
+    <color name="gemini_button_secondary_text">#484848</color>
+    <color name="gemini_button_secondary_background">#FFFFFF</color>
 </resources>

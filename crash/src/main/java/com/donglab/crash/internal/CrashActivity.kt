@@ -1,17 +1,20 @@
 package com.donglab.crash.internal
 
 import android.content.Intent
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
 import android.os.Process
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.children
 import androidx.core.view.updatePadding
 import com.donglab.crash.R
 import com.donglab.crash.databinding.ActivityCrashBinding
@@ -27,6 +30,7 @@ import com.donglab.crash.publicapi.provider.model.CrashInfoSection
 import com.donglab.crash.publicapi.provider.model.ItemType
 import com.donglab.crash.publicapi.provider.model.SectionType
 import com.google.android.material.divider.MaterialDivider
+import com.google.android.material.R as M3R
 
 internal class CrashActivity : AppCompatActivity() {
 
@@ -38,7 +42,6 @@ internal class CrashActivity : AppCompatActivity() {
         binding = ActivityCrashBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
 
-        setupStatusBarAppearance()
         setupSystemBarsPadding()
 
         crashInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -56,34 +59,19 @@ internal class CrashActivity : AppCompatActivity() {
         setupButtons()
     }
 
-    private fun setupStatusBarAppearance() {
-        // 시스템 바 배경색을 흰색으로 설정
-        window.statusBarColor = ContextCompat.getColor(this, R.color.c_ffffff)
-        window.navigationBarColor = ContextCompat.getColor(this, R.color.c_ffffff)
-
-        // Status bar 아이콘을 어둡게 설정 (light status bar)
-        WindowCompat.getInsetsController(window, binding.root)?.apply {
-            isAppearanceLightStatusBars = true
-            isAppearanceLightNavigationBars = true
-        }
-    }
-
     private fun setupSystemBarsPadding() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
             val systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-
-            // 루트 레이아웃에 status bar와 navigation bar 높이만큼 padding 추가
             view.updatePadding(
                 top = systemBars.top,
                 bottom = systemBars.bottom
             )
-
             windowInsets
         }
     }
 
     private fun setupToolbar() {
-        binding.tvTitle.text = getString(R.string.crash_app_bar_title)
+        // Title is set in the XML
     }
 
     private fun setupViews() {
@@ -97,17 +85,14 @@ internal class CrashActivity : AppCompatActivity() {
     }
 
     private fun addSection(section: CrashInfoSection) {
-        // 섹션 타이틀
         val titleBinding = ItemCrashSectionTitleBinding.inflate(layoutInflater)
         titleBinding.tvSectionTitle.text = section.title
         binding.llContent.addView(titleBinding.root)
 
-        // 섹션 아이템들
         section.items.forEachIndexed { index, item ->
             val itemView = createItemView(item, section.type)
             binding.llContent.addView(itemView)
 
-            // 아이템 사이에 구분선 (CODE 타입 아이템은 제외)
             if (index < section.items.size - 1 && item.type != ItemType.CODE) {
                 addItemDivider()
             }
@@ -117,14 +102,11 @@ internal class CrashActivity : AppCompatActivity() {
     private fun createItemView(item: CrashInfoItem, sectionType: SectionType): View {
         return when (item.type) {
             ItemType.CODE -> {
-                // 코드 블록 레이아웃
                 val codeBlockBinding = ItemCrashCodeBlockBinding.inflate(layoutInflater)
                 codeBlockBinding.tvCodeBlock.text = item.value
                 codeBlockBinding.root
             }
-
             ItemType.ERROR -> {
-                // 에러 레이아웃
                 val errorBinding = ItemCrashErrorBinding.inflate(layoutInflater)
                 errorBinding.tvError.text = if (item.label.isNotEmpty()) {
                     "${item.label}: ${item.value}"
@@ -133,26 +115,20 @@ internal class CrashActivity : AppCompatActivity() {
                 }
                 errorBinding.root
             }
-
             ItemType.NORMAL -> {
                 when (sectionType) {
                     SectionType.NORMAL -> {
-                        // 일반 레이아웃: 라벨-값 수평 배치
                         val normalBinding = ItemCrashNormalBinding.inflate(layoutInflater)
                         normalBinding.tvLabel.text = item.label
                         normalBinding.tvValue.text = item.value
                         normalBinding.root
                     }
-
                     SectionType.CODE -> {
-                        // 코드 섹션 레이아웃: monospace
                         val codeBinding = ItemCrashCodeBinding.inflate(layoutInflater)
                         codeBinding.tvCode.text = "${item.label}: ${item.value}"
                         codeBinding.root
                     }
-
                     SectionType.EXCEPTION -> {
-                        // 예외 섹션 레이아웃
                         val exceptionBinding = ItemCrashExceptionBinding.inflate(layoutInflater)
                         exceptionBinding.tvException.text = if (item.label.isNotEmpty()) {
                             "${item.label}: ${item.value}"
@@ -175,7 +151,8 @@ internal class CrashActivity : AppCompatActivity() {
                 marginStart = 16.dpToPx()
                 marginEnd = 16.dpToPx()
             }
-            dividerColor = ContextCompat.getColor(context, R.color.c_ececec)
+            // Use theme attribute for color
+            setDividerColorResource(M3R.color.material_on_surface_stroke)
         }
         binding.llContent.addView(divider)
     }
@@ -186,7 +163,8 @@ internal class CrashActivity : AppCompatActivity() {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 8.dpToPx()
             )
-            dividerColor = ContextCompat.getColor(context, R.color.c_f5f5f5)
+            // Use a slightly visible color from theme, or a custom one
+            setDividerColorResource(M3R.color.material_dynamic_neutral95)
         }
         binding.llContent.addView(divider)
     }
@@ -211,7 +189,6 @@ internal class CrashActivity : AppCompatActivity() {
             putExtra(Intent.EXTRA_SUBJECT, "Crash Report")
             putExtra(Intent.EXTRA_TEXT, crashInfo.getFormattedText())
         }
-
         startActivity(Intent.createChooser(shareIntent, getString(R.string.crash_share_title)))
     }
 
@@ -223,14 +200,12 @@ internal class CrashActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // 메모리 누수 방지: View 바인딩 정리
-        // binding.llContent의 모든 자식 뷰 제거
         binding.llContent.removeAllViews()
     }
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        // 뒤로가기 막기 - 반드시 확인 버튼을 누르게 함
+        // Block back button
     }
 
     companion object {

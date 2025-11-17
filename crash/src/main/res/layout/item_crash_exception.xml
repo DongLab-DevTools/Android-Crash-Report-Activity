@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingHorizontal="16dp"
-    android:paddingVertical="8dp"
-    android:textColor="@color/c_383838"
-    android:textSize="13sp"
+    android:paddingVertical="12dp"
+    android:textAppearance="?attr/textAppearanceBodyMedium"
+    android:textColor="?attr/colorOnSurface"
     tools:text="Attempt to invoke virtual method on a null object reference" />

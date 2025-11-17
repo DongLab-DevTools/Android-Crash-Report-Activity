@@ -8,7 +8,7 @@
         <activity
             android:name="com.donglab.crash.internal.CrashActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.CrashActivity" />
     </application>
 
 </manifest>
