@@ -13,37 +13,31 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = GeminiDarkBlue,
-    onPrimary = Color.Black,
-    primaryContainer = GeminiDarkPurple,
-    onPrimaryContainer = Color.Black,
-    secondary = GeminiDarkPurple,
-    onSecondary = Color.Black,
-    tertiary = GeminiLightPurple,
-    onTertiary = Color.Black,
-    error = GeminiRed,
-    onError = Color.White,
-    background = GeminiDarkBackground,
-    onBackground = GeminiDarkOnBackground,
-    surface = GeminiDarkSurface,
-    onSurface = GeminiDarkOnSurface,
+    primary = DarkPrimary,
+    onPrimary = DarkOnPrimary,
+    secondary = DarkSecondary,
+    onSecondary = DarkOnSecondary,
+    background = DarkBackground,
+    onBackground = DarkOnBackground,
+    surface = DarkSurface,
+    onSurface = DarkOnSurface,
+    surfaceVariant = DarkSurfaceVariant,
+    onSurfaceVariant = DarkOnSurfaceVariant,
+    outline = DarkOutline
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = GeminiBlue,
-    onPrimary = Color.White,
-    primaryContainer = GeminiLightBlue,
-    onPrimaryContainer = Color.Black,
-    secondary = GeminiPurple,
-    onSecondary = Color.White,
-    tertiary = GeminiLightPurple,
-    onTertiary = Color.Black,
-    error = GeminiRed,
-    onError = Color.White,
-    background = GeminiBackground,
-    onBackground = GeminiOnBackground,
-    surface = GeminiSurface,
-    onSurface = GeminiOnSurface,
+    primary = LightPrimary,
+    onPrimary = LightOnPrimary,
+    secondary = LightSecondary,
+    onSecondary = LightOnSecondary,
+    background = LightBackground,
+    onBackground = LightOnBackground,
+    surface = LightSurface,
+    onSurface = LightOnSurface,
+    surfaceVariant = LightSurfaceVariant,
+    onSurfaceVariant = LightOnSurfaceVariant,
+    outline = LightOutline
 )
 
 @Composable
