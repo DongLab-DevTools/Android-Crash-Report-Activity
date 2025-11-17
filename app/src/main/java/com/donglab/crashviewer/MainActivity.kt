@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -21,23 +20,18 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.donglab.crashviewer.ui.theme.CrashViewerTheme
-import com.donglab.crashviewer.ui.theme.GradientEndPurple
-import com.donglab.crashviewer.ui.theme.GradientStartBlue
-import com.donglab.crashviewer.ui.theme.LightGradientEnd
-import com.donglab.crashviewer.ui.theme.LightGradientStart
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -105,39 +99,27 @@ private val crashTests = listOf(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CrashTestScreen() {
-    val isDarkTheme = isSystemInDarkTheme()
-    val gradientColors = if (isDarkTheme) {
-        listOf(GradientStartBlue, GradientEndPurple)
-    } else {
-        listOf(LightGradientStart, LightGradientEnd)
-    }
-
-    val titleBrush = remember(gradientColors) {
-        Brush.linearGradient(gradientColors)
-    }
-
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
                     Text(
                         "Crash Viewer",
-                        style = MaterialTheme.typography.titleLarge.copy(
-                            brush = titleBrush,
-                            fontWeight = FontWeight.Bold
-                        )
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background,
+                    titleContentColor = MaterialTheme.colorScheme.onBackground
                 )
             )
-        }
+        },
+        containerColor = MaterialTheme.colorScheme.background
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
                 .padding(paddingValues),
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -155,13 +137,9 @@ fun CrashTestScreen() {
 
 @Composable
 fun CrashTestCard(crashTest: CrashTest) {
-    Card(
+    OutlinedCard(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
         Column(
             modifier = Modifier
@@ -206,18 +184,10 @@ class CustomCrashException(
     }
 }
 
-@Preview(showBackground = true, name = "Light Mode")
+@Preview(showBackground = true)
 @Composable
-fun CrashTestScreenLightPreview() {
-    CrashViewerTheme(darkTheme = false) {
-        CrashTestScreen()
-    }
-}
-
-@Preview(showBackground = true, name = "Dark Mode")
-@Composable
-fun CrashTestScreenDarkPreview() {
-    CrashViewerTheme(darkTheme = true) {
+fun CrashTestScreenPreview() {
+    CrashViewerTheme {
         CrashTestScreen()
     }
 }

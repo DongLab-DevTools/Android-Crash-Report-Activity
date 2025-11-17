@@ -3,179 +3,45 @@
     <!--      New Theme for CrashActivity           -->
     <!-- ========================================== -->
     <style name="Theme.CrashActivity" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/gemini_light_primary</item>
-        <item name="android:colorBackground">@color/gemini_light_background</item>
-        <item name="colorSurface">@color/gemini_light_surface</item>
-        <item name="colorOnSurface">@color/gemini_light_on_surface</item>
-        <item name="android:textColorSecondary">@color/gemini_light_on_surface_secondary</item>
+        <item name="colorPrimary">@color/gemini_primary</item>
+        <item name="colorOnPrimary">@color/gemini_on_primary</item>
+        <item name="android:colorBackground">@color/gemini_background</item>
+        <item name="colorOnBackground">@color/gemini_on_background</item>
+        <item name="colorSurface">@color/gemini_surface</item>
+        <item name="colorOnSurface">@color/gemini_on_surface</item>
+        <item name="colorSurfaceVariant">@color/gemini_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/gemini_on_surface_variant</item>
+        <item name="colorOutline">@color/gemini_outline</item>
+        <item name="android:textColorSecondary">@color/gemini_on_surface_variant</item>
+        <item name="android:fontFamily">@font/product_sans</item>
 
         <!-- Set status bar and navigation bar colors -->
-        <item name="android:statusBarColor">@color/gemini_light_background</item>
-        <item name="android:navigationBarColor">@color/gemini_light_background</item>
+        <item name="android:statusBarColor">@color/gemini_background</item>
+        <item name="android:navigationBarColor">@color/gemini_background</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>
 
-    <!-- New Material3 Button Style -->
-    <style name="Gemini.Button.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="strokeColor">@color/gemini_light_outline</item>
-        <item name="android:textColor">@color/gemini_light_on_surface</item>
-        <item name="android:textSize">16sp</item>
+    <!-- ========================================== -->
+    <!--         New Material3 Button Styles        -->
+    <!-- ========================================== -->
+    <style name="Gemini.Button.Main" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/gemini_button_main_background</item>
+        <item name="android:textColor">@color/gemini_button_secondary_text</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">12dp</item>
     </style>
 
-
-    <!-- ========================================== -->
-    <!--               Button Style                 -->
-    <!-- ========================================== -->
-
-    <!-- Base Styles -->
-    <style name="BaseFilledButton">
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/selector_filled_button</item>
-        <item name="android:textColor">@color/c_ffffff</item>
-    </style>
-
-    <style name="BaseFilledLightButton">
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/selector_filled_light_button</item>
-        <item name="android:textColor">@color/color_filled_light_button_text</item>
-    </style>
-
-    <style name="BaseOutlinedButton">
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/selector_outlined_button</item>
-        <item name="android:textColor">@color/color_outlined_button_text</item>
-    </style>
-
-    <!-- Button Styles -->
-    <style name="FilledButtonLarge" parent="BaseFilledButton">
-        <item name="android:height">48dp</item>
-        <item name="android:textAppearance">@style/TextBody1</item>
+    <style name="Gemini.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="backgroundTint">@color/gemini_button_secondary_background</item>
+        <item name="strokeColor">@color/gemini_button_secondary_border</item>
+        <item name="android:textColor">@color/gemini_button_secondary_text</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
     </style>
 
-    <style name="FilledLightButtonLarge" parent="BaseFilledLightButton">
-        <item name="android:height">48dp</item>
-        <item name="android:textAppearance">@style/TextBody1</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="FilledButtonMediumAction">
-        <item name="android:height">44dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/bg_round_rectangle_r8_2b96ed</item>
-        <item name="android:textAppearance">@style/TextBody2</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/c_ffffff</item>
-    </style>
-
-    <style name="FilledButtonMediumCancel">
-        <item name="android:height">44dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/bg_round_rectangle_r8_999999</item>
-        <item name="android:textAppearance">@style/TextBody2</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/c_ffffff</item>
-    </style>
-
-    <style name="FilledLightButtonMedium" parent="BaseFilledLightButton">
-        <item name="android:height">44dp</item>
-        <item name="android:textAppearance">@style/TextBody2</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="FilledButtonSmall" parent="BaseFilledButton">
-        <item name="android:height">42dp</item>
-        <item name="android:textAppearance">@style/TextBody3</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="OutlinedButtonLarge" parent="BaseOutlinedButton">
-        <item name="android:height">48dp</item>
-        <item name="android:textAppearance">@style/TextBody1</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="OutlinedButtonLargeCancel">
-        <item name="android:gravity">center</item>
-        <item name="android:height">48dp</item>
-        <item name="android:textAppearance">@style/TextBody1</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:background">@drawable/bg_round_rectangle_borderline_r8_d8d8d8_ffffff</item>
-        <item name="android:textColor">@color/c_999999</item>
-    </style>
-
-    <!-- ========================================== -->
-    <!--                  Font Style                -->
-    <!-- ========================================== -->
-    <!-- Display -->
-    <style name="TextDisplay">
-        <item name="android:textSize">40dp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <!-- Headline styles -->
-    <style name="TextHeadline1">
-        <item name="android:textSize">36dp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <style name="TextHeadline2">
-        <item name="android:textSize">28dp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <style name="TextHeadline3">
-        <item name="android:textSize">24dp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <style name="TextHeadline4">
-        <item name="android:textSize">20dp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <style name="TextHeadline5">
-        <item name="android:textSize">18dp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <!-- Body styles -->
-    <style name="TextBody1">
-        <item name="android:textSize">15dp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <style name="TextBody2">
-        <item name="android:textSize">15dp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <style name="TextBody3">
-        <item name="android:textSize">14dp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <!-- Caption styles -->
-    <style name="TextCaption1">
-        <item name="android:textSize">13dp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <style name="TextCaption2">
-        <item name="android:textSize">12dp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
-
-    <!-- Label -->
-    <style name="TextLabel">
-        <item name="android:textSize">11dp</item>
-        <item name="android:letterSpacing">0</item>
-    </style>
 </resources>

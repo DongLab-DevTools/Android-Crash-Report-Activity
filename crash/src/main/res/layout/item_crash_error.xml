@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="16dp"
     android:paddingVertical="8dp"
+    android:textAppearance="?attr/textAppearanceBodyLarge"
+    android:textStyle="normal"
     android:textColor="?attr/colorPrimary"
-    android:textSize="14sp"
-    android:textStyle="bold"
     tools:text="java.lang.NullPointerException" />

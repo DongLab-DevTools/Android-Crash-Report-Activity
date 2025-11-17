@@ -18,8 +18,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Crash Report"
-            app:titleTextColor="?attr/colorOnSurface" />
+            app:title="@string/crash_app_bar_title"
+            app:titleTextAppearance="?attr/textAppearanceTitleLarge"
+            app:titleTextColor="@android:color/black" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -53,7 +54,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnShare"
-            style="@style/Gemini.Button.OutlinedButton"
+            style="@style/Gemini.Button.Secondary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -62,7 +63,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnClose"
-            style="@style/Gemini.Button.OutlinedButton"
+            style="@style/Gemini.Button.Main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

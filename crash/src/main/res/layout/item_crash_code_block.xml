@@ -15,9 +15,9 @@
         android:background="@drawable/bg_gemini_code_block"
         android:fontFamily="monospace"
         android:padding="12dp"
+        android:textAppearance="?attr/textAppearanceBodySmall"
         android:textColor="?attr/colorOnSurface"
         android:textIsSelectable="true"
-        android:textSize="11sp"
         tools:text="at com.example.MainActivity.onCreate(MainActivity.kt:25)" />
 
 </HorizontalScrollView>
