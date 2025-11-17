@@ -5,8 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -17,28 +17,27 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.donglab.crashviewer.ui.theme.CrashViewerTheme
-import com.donglab.crashviewer.ui.theme.GeminiBlue
-import com.donglab.crashviewer.ui.theme.GeminiPurple
+import com.donglab.crashviewer.ui.theme.GradientEndPurple
+import com.donglab.crashviewer.ui.theme.GradientStartBlue
+import com.donglab.crashviewer.ui.theme.LightGradientEnd
+import com.donglab.crashviewer.ui.theme.LightGradientStart
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -66,62 +65,38 @@ data class CrashTest(
 @Composable
 fun CrashTestScreen() {
     val crashTests = listOf(
-        CrashTest(
-            title = "NullPointerException",
-            description = "Trigger a null pointer exception"
-        ) {
+        CrashTest("NullPointerException", "Trigger a null pointer exception") {
             val nullString: String? = null
             nullString!!.length
         },
-        CrashTest(
-            title = "ArrayIndexOutOfBounds",
-            description = "Access array with invalid index"
-        ) {
+        CrashTest("ArrayIndexOutOfBounds", "Access array with invalid index") {
             val array = arrayOf(1, 2, 3)
             array[10]
         },
-        CrashTest(
-            title = "ArithmeticException",
-            description = "Division by zero error"
-        ) {
+        CrashTest("ArithmeticException", "Division by zero error") {
             val result = 10 / 0
         },
-        CrashTest(
-            title = "ClassCastException",
-            description = "Invalid type casting"
-        ) {
+        CrashTest("ClassCastException", "Invalid type casting") {
             val obj: Any = "String"
             obj as Int
         },
-        CrashTest(
-            title = "StackOverflowError",
-            description = "Infinite recursive call"
-        ) {
+        CrashTest("StackOverflowError", "Infinite recursive call") {
             fun recursiveFunction(): Unit = recursiveFunction()
             recursiveFunction()
         },
-        CrashTest(
-            title = "OutOfMemoryError",
-            description = "Allocate excessive memory"
-        ) {
+        CrashTest("OutOfMemoryError", "Allocate excessive memory") {
             val list = mutableListOf<ByteArray>()
             while (true) {
                 list.add(ByteArray(1024 * 1024 * 10)) // 10MB per iteration
             }
         },
-        CrashTest(
-            title = "Background Thread Crash",
-            description = "Crash on a background thread"
-        ) {
+        CrashTest("Background Thread Crash", "Crash on a background thread") {
             CoroutineScope(Dispatchers.Default).launch {
                 delay(100)
                 throw RuntimeException("Background thread crash!")
             }
         },
-        CrashTest(
-            title = "Custom Exception",
-            description = "Throw a custom exception with detailed message"
-        ) {
+        CrashTest("Custom Exception", "Throw a custom exception with detailed message") {
             throw CustomCrashException(
                 "This is a custom crash with detailed information",
                 errorCode = "ERR_001",
@@ -130,18 +105,27 @@ fun CrashTestScreen() {
         }
     )
 
+    val isDarkTheme = isSystemInDarkTheme()
+    val gradientColors = if (isDarkTheme) {
+        listOf(GradientStartBlue, GradientEndPurple)
+    } else {
+        listOf(LightGradientStart, LightGradientEnd)
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
                     Text(
                         "Crash Viewer",
-                        fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        style = MaterialTheme.typography.titleLarge.copy(
+                            brush = Brush.linearGradient(gradientColors),
+                            fontWeight = FontWeight.Bold
+                        )
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary
+                    containerColor = MaterialTheme.colorScheme.background,
                 )
             )
         }
@@ -157,10 +141,6 @@ fun CrashTestScreen() {
             items(crashTests) { crashTest ->
                 CrashTestCard(crashTest)
             }
-
-            item {
-                Spacer(modifier = Modifier.height(16.dp))
-            }
         }
     }
 }
@@ -169,11 +149,11 @@ fun CrashTestScreen() {
 fun CrashTestCard(crashTest: CrashTest) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
         Column(
             modifier = Modifier
@@ -183,7 +163,7 @@ fun CrashTestCard(crashTest: CrashTest) {
             Text(
                 text = crashTest.title,
                 style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.onSurface
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -193,13 +173,10 @@ fun CrashTestCard(crashTest: CrashTest) {
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
             )
             Spacer(modifier = Modifier.height(12.dp))
-            Button(
+            TextButton(
                 onClick = crashTest.action,
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primary
-                )
+                shape = RoundedCornerShape(8.dp)
             ) {
                 Text(
                     text = "Trigger Crash",
@@ -221,10 +198,18 @@ class CustomCrashException(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Light Mode")
 @Composable
-fun CrashTestScreenPreview() {
-    CrashViewerTheme {
+fun CrashTestScreenLightPreview() {
+    CrashViewerTheme(darkTheme = false) {
+        CrashTestScreen()
+    }
+}
+
+@Preview(showBackground = true, name = "Dark Mode")
+@Composable
+fun CrashTestScreenDarkPreview() {
+    CrashViewerTheme(darkTheme = true) {
         CrashTestScreen()
     }
 }
