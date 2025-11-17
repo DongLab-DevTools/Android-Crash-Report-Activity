@@ -15,8 +15,7 @@ It provides comprehensive crash details including app information, device inform
 
 | Sample Screen | Crash Info Screen 1 | Crash Info Screen 2 | Share Feature |
 |---------|----------------|----------------|----------------|
-| <img width="1080" height="2640" alt="image" src="https://github.com/user-attachments/assets/af2d878d-09cf-4c95-ae1d-40afdae1b76b" /> | <img width="1080" height="2640" alt="image" src="https://github.com/user-attachments/assets/58b8bd59-b5ea-4079-8ead-6c0297289cab" /> | <img width="1080" alt="image" src="https://github.com/user-attachments/assets/85fc7707-45d3-4d45-8744-abca5cd4982c" /> | <img width="1080" alt="image" src="https://github.com/user-attachments/assets/d7e845d8-c299-4b6c-9521-193b5c8df302" /> |
-
+| <img width="1080" height="2640" alt="image" src="https://github.com/user-attachments/assets/af2d878d-09cf-4c95-ae1d-40afdae1b76b" /> | <img width="1080" height="2640" alt="image" src="https://github.com/user-attachments/assets/57a8d05b-037f-401a-8f2b-1d655811f512" /> | <img width="1080" height="2640" alt="image" src="https://github.com/user-attachments/assets/afdf313d-90f7-4098-9955-cfee7e60356e" /> | <img width="1080" alt="image" src="https://github.com/user-attachments/assets/d7e845d8-c299-4b6c-9521-193b5c8df302" /> |
 
 
 <br>
