@@ -3,7 +3,7 @@
 [![Hits](https://myhits.vercel.app/api/hit/https%3A%2F%2Fgithub.com%2Fdonglab%2FAndroid-Crash-Report-Activity%3Ftab%3Dreadme-ov-file?color=blue&label=hits&size=small)](https://myhits.vercel.app)
 [![Platform](https://img.shields.io/badge/platform-Android-3DDC84?style=flat-square&logo=android)](https://developer.android.com)
 [![Min SDK](https://img.shields.io/badge/min%20sdk-21-green?style=flat-square)](https://developer.android.com)
-[![Jitpack](https://jitpack.io/v/donglab/Android-Crash-Report-Activity.svg)](https://jitpack.io/#donglab/Android-Crash-Report-Activity)
+[![Jitpack](https://jitpack.io/v/DongLab-DevTools/Android-Crash-Report-Activity.svg)](https://jitpack.io/#DongLab-DevTools/Android-Crash-Report-Activity)
 
 **[English README](./README.md)**
 
@@ -166,4 +166,5 @@ installCrashHandler(this) {
 	<tbody>
 </table>
 <!-- readme: collaborators,contributors -end -->
+
 
