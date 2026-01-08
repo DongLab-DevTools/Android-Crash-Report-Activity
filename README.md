@@ -57,7 +57,7 @@ Add the library to your module's `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.github.donglab:Android-Crash-Report-Activity:latest.release")
+    implementation("com.github.DongLab-DevTools:Android-Crash-Report-Activity:{latest.version}")
 }
 ```
 
