@@ -59,7 +59,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation("com.github.donglab:Android-Crash-Report-Activity:latest.release")
+    implementation("com.github.DongLab-DevTools:Android-Crash-Report-Activity:{latest.version}")
 }
 ```
 
@@ -166,5 +166,6 @@ installCrashHandler(this) {
 	<tbody>
 </table>
 <!-- readme: collaborators,contributors -end -->
+
 
 
